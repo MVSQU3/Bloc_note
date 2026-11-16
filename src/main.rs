@@ -644,7 +644,7 @@ impl eframe::App for App {
 
         // Fichiers déposés
         let dropped: Vec<PathBuf> =
-            ctx.input(|i| i.raw.dropped_files.iter().filter_map(|f| Some(f.path().to_path_buf())).collect());
+            ctx.input(|i| i.raw.dropped_files.iter().filter_map(|f| f.path.clone()).collect());
         for p in dropped {
             self.open_path(&p);
         }
